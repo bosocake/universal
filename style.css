@@ -52,7 +52,6 @@ div, a{
 	width: 100%;
     gap: 20px;
 	height: var(--header-height);
-
 }
 
 .header-logo{
@@ -96,16 +95,24 @@ div, a{
 
 .header-menu-logo{
     height: 20px;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    margin: 25px;
 }
 .header-menu{
     top: 0;
-    left: 0;
+    right: 0;
     position: fixed;
     background: #ffffff;
-    width: 100%;
     /* margin-left: -100%; */
-    opacity: 0;
-    margin-left: -100%;
+    width: 100%;
+    right: 0;
+    transform: translateX(100%); /* Анимация сдвига влево */
+}
+.show-menu {
+    transform: translateX(0%); /* Анимация сдвига влево */
 }
 .header-menu-limit{
     margin: auto;
@@ -171,7 +178,6 @@ div, a{
 }
 
 .header-link-parent-group{
-    margin: -140px 0 0 -100%;
 }
 .header-link-parent{
     padding: 20px 60px;
