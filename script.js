@@ -80,50 +80,72 @@
 // var loginFormatClick = document.querySelector('.login-format-click')
 // var loginChoiceNumber = document.querySelector('.login-choice-number');
 
-var menu = document.querySelector('.header-menu');
-var close = document.querySelector('.header-close');
-var open = document.querySelector('.header-menu-logo');
+// var menu = document.querySelector('.header-menu');
+// var close = document.querySelector('.header-close');
+// var open = document.querySelector('.header-menu-logo');
+const logo = document.querySelector('.header-menu-logo');
+const menu = document.querySelector('.header-menu');
+var img = document.querySelector('.header-menu-logo');
+var originalSrc = 'image/img/menu.png';
+var newSrc = 'image/img/close.png';
+logo.addEventListener('click', function() {
+  anime({
+    targets: menu,
+    easing: 'easeInOutQuad',
+    duration: 0,
+    complete: function() {
+      
+      menu.classList.toggle('show-menu');
 
+      
+      if (img.src === originalSrc) {
+        img.src = newSrc;
+      } else {
+        img.src = originalSrc;
+      }
+    }
+  });
+});
 
-// Обработчик события клика на элементе .header-close
-function closeMenu() {
-  // Меняем стиль элемента .header-menu
-    menu.style.cssText = 'margin-left: -100%; opacity: 0;'; // Пример стиля
-}
-function openMenu() {
-    // Меняем стиль элемента .header-menu
-      menu.style.cssText = 'margin-left: 0%; opacity: 1;'; // Пример стиля
-  }
-// Добавляем обработчик события клика на элемент .header-close
-close.addEventListener('click', closeMenu);
+// // Обработчик события клика на элементе .header-close
+// function closeMenu() {
+//   // Меняем стиль элемента .header-menu
+//     menu.style.cssText = 'margin-left: -100%; opacity: 0;'; // Пример стиля
+// }
+// function openMenu() {
+//     // Меняем стиль элемента .header-menu
+//       menu.style.cssText = 'margin-left: 0%; opacity: 1;'; // Пример стиля
+//   }
+// // Добавляем обработчик события клика на элемент .header-close
+// close.addEventListener('click', closeMenu);
 
-open.addEventListener('click', openMenu);
+// open.addEventListener('click', openMenu);
 
-// Получаем все элементы с классом .header-link-main
-var divs = document.getElementsByClassName('header-link-main');
-var parentGroups = document.getElementsByClassName('header-link-parent-group');
+// // Получаем все элементы с классом .header-link-main
+// var divs = document.getElementsByClassName('header-link-main');
+// var parentGroups = document.getElementsByClassName('header-link-parent-group');
 
-// Обработчик события клика на элементе .header-link-main
-function handleClick(index) {
-  // Проверяем текущий стиль блока .header-link-parent-group
-  var currentStyle = parentGroups[index].style.cssText;
+// // Обработчик события клика на элементе .header-link-main
+// function handleClick(index) {
+//   // Проверяем текущий стиль блока .header-link-parent-group
+//   var currentStyle = parentGroups[index].style.cssText;
 
-  // Если текущий стиль равен 'red', возвращаем исходный стиль
-  if (currentStyle != 'margin: 0px;') {
-    parentGroups[index].style.cssText = 'margin: 0px;'; // Исходный стиль
-  } else {
-    parentGroups[index].style.cssText = 'margin: -140px 0 0 -100%;'; // Изменяем стиль
-  }
-}
+//   // Если текущий стиль равен 'red', возвращаем исходный стиль
+//   if (currentStyle != 'margin: 0px;') {
+//     parentGroups[index].style.cssText = 'margin: 0px;'; // Исходный стиль
+//   } else {
+//     parentGroups[index].style.cssText = 'margin: -140px 0 0 -100%;'; // Изменяем стиль
+//   }
+// }
 
-// Добавляем обработчик события клика на каждый элемент .header-link-main
-for (var i = 0; i < divs.length; i++) {
-  (function(index) {
-    divs[index].addEventListener('click', function() {
-      handleClick(index); // Вызываем функцию для изменения стиля
-    });
-  })(i);
-}
+// // Добавляем обработчик события клика на каждый элемент .header-link-main
+// for (var i = 0; i < divs.length; i++) {
+//   (function(index) {
+//     divs[index].addEventListener('click', function() {
+//       handleClick(index); // Вызываем функцию для изменения стиля
+//     });
+//   })(i);
+// }
 
 
 
